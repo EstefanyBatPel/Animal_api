@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import connection_db from '../database/connection_db.js';
 
 // Definir el modelo Animal
-const animal = connection_db.define('animal', {
+const AnimalModel = connection_db.define('Animal', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -40,12 +40,12 @@ const animal = connection_db.define('animal', {
 // Sincronizar el modelo con la base de datos
 (async () => {
   try {
-    await connection_db.sync();
+    await AnimalModel.sync(); 
+    //await animal.sync({force: true}); // Elimina el modelo anterior y crea uno nuevo
     console.log('Model and database synchronized correctly');
   } catch (error) {
     console.error('Synchronization error:', error);
   }
 })();
 
-console.log(animal)
-console.log(animal === connection_db.models.animal); // true
+console.log(AnimalModel === connection_db.models.Animal); // true
