@@ -49,3 +49,5 @@ const AnimalModel = connection_db.define('Animal', {
 })();
 
 console.log(AnimalModel === connection_db.models.Animal); // true
+
+export default AnimalModel;
