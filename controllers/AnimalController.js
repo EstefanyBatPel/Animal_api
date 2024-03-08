@@ -40,16 +40,16 @@ export const deleteAnimal = async (request, response) => {
 export const createAnimal = async (request, response) => {
     try {
         // Obtener los datos del nuevo animal del cuerpo de la solicitud
-        const {name, scientificName, image, photographer, sound, description} = request.body;
+        //const {name, scientificName, image, photographer, sound, description} = request.body;
 
         // Crear un nuevo animal utilizando el modelo AnimalModel y los datos proporcionados
         const newAnimal = await AnimalModel.create({
             name:request.body.name,
             scientificName:request.body.scientificName ,
             image:request.body.image,
-            photographer:request.body.photographer,
+            photographer: request.body.photographer,
             sound:request.body.sound, 
-            description:request.body.description
+            description: request.body.description
         });
 
         // Responder con un estado 201 (Creado) y el nuevo animal creado
