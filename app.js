@@ -4,8 +4,8 @@ import express from "express";
 import AnimalRouter from "./routes/AnimalRouter.js"
 
 const app = express();
-
-app.use("/api", AnimalRouter)
+app.use(express.json())  // Middleware para parsear el cuerpo de las peticiones a JSON
+app.use("/api", AnimalRouter)  // Montar el enrutador de animales en la ruta /api
 
 try {
   await connection_db.authenticate();
