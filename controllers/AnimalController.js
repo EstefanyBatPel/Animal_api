@@ -71,11 +71,9 @@ export const createAnimal = async (request, response) => {
 export const updatedAnimal = async (request, response) => {
     try {
         const { id } = request.params;
-        // const newData = request.body;
         
         // Actualiza el animal y obtén el número de filas actualizadas
         const animal = await AnimalModel.update(request.body, {where: { id }});
-        // const updatedCount = await AnimalModel.update(newData, { where: { id } });
         
         // Si se actualizó al menos una fila
         if (animal[0] === 1) {
