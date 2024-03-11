@@ -43,14 +43,7 @@ export const createAnimal = async (request, response) => {
     try {
         
         // Crear un nuevo animal utilizando el modelo AnimalModel y los datos proporcionados
-        const newAnimal = await AnimalModel.create({
-            name:request.body.name,
-            scientificName:request.body.scientificName ,
-            image:request.body.image,
-            photographer: request.body.photographer,
-            sound:request.body.sound, 
-            description: request.body.description
-        });
+        const newAnimal = await AnimalModel.create(request.body);
 
         // Responder con un estado 201 (Creado) y el nuevo animal creado
         response.status(201).json(newAnimal);
