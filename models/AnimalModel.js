@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import connection_db from '../database/connection_db.js';
+import chalk from 'chalk';
 
 // Definir el modelo Animal
 const AnimalModel = connection_db.define('Animal', {
@@ -42,12 +43,10 @@ const AnimalModel = connection_db.define('Animal', {
   try {
     await AnimalModel.sync(); 
     //await animal.sync({force: true}); // Elimina el modelo anterior y crea uno nuevo
-    console.log('Model and database synchronized correctly');
+    console.log(chalk.green('Model and database synchronized correctly\n'));
   } catch (error) {
     console.error('Synchronization error:', error);
   }
 })();
-
-console.log(AnimalModel === connection_db.models.Animal); // true
 
 export default AnimalModel;
