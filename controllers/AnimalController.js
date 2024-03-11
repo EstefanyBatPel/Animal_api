@@ -53,3 +53,17 @@ export const createAnimal = async (request, response) => {
     }
 };
 
+//Update
+export const updatedAnimal = async (request, response) => {
+    try {
+
+        const { id } = request.params;
+        const animal = await AnimalModel.update(request.body, {where: { id }});
+        response.status(201).json(animal);
+
+    } catch (error) {
+
+        response.status(500).json({ message: error.message });
+
+    }
+}
