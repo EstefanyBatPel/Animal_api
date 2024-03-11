@@ -13,6 +13,20 @@ export const getAllAnimals = async (request, response) => {
 
 }
 
+export const getAnimalById = async (request, response) => {
+    const { id } = request.params;
+    
+    try {
+        const animal = await AnimalModel.findOne({ where: { id }});
+        if (!animal) { // Si no se encuentra el animal
+            return response.status(404).json({ message: "Animal not found" });
+        }
+        response.status(200).json(animal);
+    } catch (error) {
+        response.status(500).json({ message: error.message });
+    }
+};
+
 export const deleteAnimal = async (request, response) => {
     
     try {
@@ -24,8 +38,6 @@ export const deleteAnimal = async (request, response) => {
         response.status(500).json({ message: error.message });
     }
 }
-
-
 
 export const createAnimal = async (request, response) => {
     try {
