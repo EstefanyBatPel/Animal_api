@@ -54,16 +54,39 @@ export const createAnimal = async (request, response) => {
 };
 
 //Update
+// export const updatedAnimal = async (request, response) => {
+//     try {
+
+//         const { id } = request.params;
+//         const animal = await AnimalModel.update(request.body, {where: { id }});
+//         response.status(201).json(animal);
+
+//     } catch (error) {
+
+//         response.status(500).json({ message: error.message });
+
+//     }
+// }
+
 export const updatedAnimal = async (request, response) => {
     try {
-
         const { id } = request.params;
+        // const newData = request.body;
+        
+        // Actualiza el animal y obtén el número de filas actualizadas
         const animal = await AnimalModel.update(request.body, {where: { id }});
-        response.status(201).json(animal);
-
+        // const updatedCount = await AnimalModel.update(newData, { where: { id } });
+        
+        // Si se actualizó al menos una fila
+        if (animal[0] === 1) {
+            // Busca el animal actualizado y devuélvelo
+            const updatedAnimal = await AnimalModel.findOne({ where: { id }})
+            response.status(200).json(updatedAnimal);
+        } else {
+            // Si no se actualizó ninguna fila, devuelve un mensaje de error
+            response.status(404).json({ message: "No hay cambios para actualizar" });
+        }
     } catch (error) {
-
         response.status(500).json({ message: error.message });
-
     }
 }
