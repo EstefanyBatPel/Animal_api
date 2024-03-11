@@ -65,18 +65,6 @@ export const getAnimalById = async (request, response) => {  // request: petici�
     }
 }
 
-export const putImage = async (request, response) => {  // request: petición del cliente, response: respuesta del servidor
 
-    try {  
-        const { id } = request.params;   // request.params: parámetros de la petición, id: identificador del animal a actualizar
-        const image = request.file.filename;   // request.file: archivo de la petición, filename: nombre del archivo
-        const updatedAnimal = await AnimalModel.update({ image }, { where: { id }});   // await: esperar a que se ejecute la función, update: actualizar un registro de la tabla animals, where: condición para actualizar el registro
-        response.status(200).json(updatedAnimal);   // status: estado de la respuesta, 200: todo está bien, json: formato de la respuesta
-    }
 
-    catch (error) {   // catch: si hay un error, hacer algo
-        response.status(500).json({ message: error.message });
-    }
-
-}
 
