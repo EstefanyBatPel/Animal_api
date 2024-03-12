@@ -1,5 +1,8 @@
-import e from "express";
+import expresss from "express";
 import AnimalModel from "../models/AnimalModel.js"
+import { check, validationResult } from 'express-validator';
+import { putValidationRules } from "../validation/PutValidator.js"; // Asegúrate de que la ruta al archivo es correcta
+
 
 
 export const getAllAnimals = async (request, response) => {   // request: petición del cliente, response: respuesta del servidor 
@@ -71,12 +74,17 @@ export const createAnimal = async (request, response) => {
 //Update modificado para que se muestre el objeto entero
 
 
-export const updatedAnimal = async (request, response) => {
+export const updateAnimal = async (request, response) => {
+
     try {
         const { id } = request.params;
         
+       
+
         // Actualiza el animal y obtén el número de filas actualizadas
         const animal = await AnimalModel.update(request.body, {where: { id }});
+
+       
         
         // Si se actualizó al menos una fila
         if (animal[0] === 1) {
