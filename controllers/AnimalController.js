@@ -30,8 +30,8 @@ export const getAnimalById = async (request, response) => {
 export const deleteAnimal = async (request, response) => {
     
     try {
-        const { id } = request.params;
-        const animal = await AnimalModel.destroy({ where: { id }});
+        const animal = await AnimalModel.findOne({ where: { id: request.params.id }})        
+        await AnimalModel.destroy({ where: { id: request.params.id }});
         response.status(200).json(animal);
     } 
     catch (error) {
@@ -52,21 +52,6 @@ export const createAnimal = async (request, response) => {
         response.status(500).json({ message: error.message });
     }
 };
-
-//Update
-// export const updatedAnimal = async (request, response) => {
-//     try {
-
-//         const { id } = request.params;
-//         const animal = await AnimalModel.update(request.body, {where: { id }});
-//         response.status(201).json(animal);
-
-//     } catch (error) {
-
-//         response.status(500).json({ message: error.message });
-
-//     }
-// }
 
 export const updatedAnimal = async (request, response) => {
     try {
