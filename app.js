@@ -2,8 +2,6 @@ import { PORT } from "./config.js";
 import connection_db from "./database/connection_db.js";
 import express from "express";
 import AnimalRouter from "./routes/AnimalRouter.js"
-import { check, validationResult } from 'express-validator';
-import { putValidationRules } from "./validation/PutValidator.js";
 import chalk from "chalk";
 
 export const app = express();
@@ -26,5 +24,4 @@ app.listen(PORT, () => {
     chalk.gray('Press CTRL-C to stop'),
     ''
   ].join('\n'));
-
 });
