@@ -2,11 +2,15 @@ import { PORT } from "./config.js";
 import connection_db from "./database/connection_db.js";
 import express from "express";
 import AnimalRouter from "./routes/AnimalRouter.js"
+import { check, validationResult } from 'express-validator';
+import { putValidationRules } from "./validation/PutValidator.js";
 import chalk from "chalk";
 
 const app = express();
+
 app.use(express.json())  // Middleware para parsear el cuerpo de las peticiones a JSON
 app.use("/api", AnimalRouter)  // Montar el enrutador de animales en la ruta /api
+
 
 try {
   await connection_db.authenticate();
@@ -22,4 +26,8 @@ app.listen(PORT, () => {
     chalk.gray('Press CTRL-C to stop'),
     ''
   ].join('\n'));
+
+
+
+
 });

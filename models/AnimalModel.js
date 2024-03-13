@@ -41,7 +41,7 @@ const AnimalModel = connection_db.define('Animal', {
 // Sincronizar el modelo con la base de datos
 (async () => {
   try {
-    await AnimalModel.sync(); 
+    await AnimalModel.sync();
     //await animal.sync({force: true}); // Elimina el modelo anterior y crea uno nuevo
     console.log(chalk.green('Model and database synchronized correctly\n'));
   } catch (error) {
