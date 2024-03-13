@@ -40,33 +40,17 @@ export const deleteAnimal = async (request, response) => {
 
 
 export const createAnimal = async (request, response) => {
+     try {
 
-    //tutorial
+         // Crear un nuevo animal utilizando el modelo AnimalModel y los datos proporcionados
+         const newAnimal = await AnimalModel.create(request.body);
 
-    try{
-        const {name, scientificName, image, photographer, sound, description} = request.body;
-        const resDetail = await AnimalModel.create({
-            name, scientificName, image, photographer, sound, description
-        })
-        response.send({data: resDetail})
-    }catch(error){
-        httpError(response,error)
-    }
-
-    //fin tutorial
-
-
-    // try {
-
-    //     // Crear un nuevo animal utilizando el modelo AnimalModel y los datos proporcionados
-    //     const newAnimal = await AnimalModel.create(request.body);
-
-    //     // Responder con un estado 201 (Creado) y el nuevo animal creado
-    //     response.status(201).json(newAnimal);
-    // } catch (error) {
-    //     // Si ocurre algún error, responder con un estado 500 (Error interno del servidor) y un mensaje de error
-    //     response.status(500).json({ message: error.message });
-    // }
+         // Responder con un estado 201 (Creado) y el nuevo animal creado
+         response.status(201).json(newAnimal);
+     } catch (error) {
+         // Si ocurre algún error, responder con un estado 500 (Error interno del servidor) y un mensaje de error
+         response.status(500).json({ message: error.message });
+    y }
 };
 
 export const updatedAnimal = async (request, response) => {
