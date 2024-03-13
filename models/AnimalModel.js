@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import connection_db from '../database/connection_db.js';
 import chalk from 'chalk';
 
-// Definir el modelo Animal
+// Definir el modelo Animal                                        
 const AnimalModel = connection_db.define('Animal', {
   id: {
     type: DataTypes.INTEGER,

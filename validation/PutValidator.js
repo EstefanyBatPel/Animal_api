@@ -29,9 +29,7 @@ import { validateResult } from '../helpers/validateHelpers.js';
   
   (request, response, next) => {
     validateResult(request, response, next);
+    
   }
-
-
-
 
   ];
