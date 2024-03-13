@@ -1,4 +1,4 @@
-import {check} from 'express-validator'
+import {check, body} from 'express-validator' //se puede hacer con check y con body
 import { validateResult } from '../helpers/validateHelper.js';
 
 // Reglas de validación al obtener los datos de la api
