@@ -1,8 +1,39 @@
 import { check, param } from "express-validator";
 import AnimalModel from "../models/AnimalModel.js";
-import { validateResult } from "../helpers/validateHelpers.js";
+import { validateResult } from "../helpers/validateHelper.js";
 
-export const PutAnimalValidator = [
+export const validateCreateAnimal = [
+  check('name')
+      .exists()
+      .notEmpty(),
+
+  check('scientificName')
+      .exists()
+      .notEmpty(),
+
+  check('photographer')
+      .exists()
+      .notEmpty(),
+
+  check('image')
+      .exists()
+      .notEmpty(),
+
+  check('sound')
+      .exists()
+      .notEmpty(),
+
+  check('description')
+      .exists()
+      .notEmpty()
+      .isLength({ min: 5 }).withMessage('La descripcion debe tener al menos 5 caracteres'),
+
+  (req, res, next) => {
+      validateResult(req, res, next)
+  }
+];
+
+export const validateUpdateAnimal = [
     check('name')
       .notEmpty().withMessage('El nombre del animal es obligatorio')
       .isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
@@ -27,7 +58,7 @@ export const PutAnimalValidator = [
     }
   ];
 
-export const DeleteAnimalValidator = [
+export const validateDeleteAnimal = [
     param("id")
         .exists()
         .notEmpty()
