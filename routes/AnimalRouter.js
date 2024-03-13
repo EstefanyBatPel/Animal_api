@@ -1,6 +1,6 @@
 import express from "express";
 import { getAllAnimals, updateAnimal, deleteAnimal, getAnimalById, createAnimal } from "../controllers/AnimalController.js"
-import { DeleteAnimalValidator, PutAnimalValidator } from "../validators/AnimalValidator.js";
+import { DeleteAnimalValidator, PutAnimalValidator } from "../validators/AnimalValidators.js";
 
 const router = express.Router();
 

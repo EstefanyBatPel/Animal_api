@@ -1,9 +1,4 @@
-import expresss from "express";
 import AnimalModel from "../models/AnimalModel.js"
-import { check, validationResult } from 'express-validator';
-import { putValidationRules } from "../validation/PutValidator.js"; // Asegúrate de que la ruta al archivo es correcta
-
-
 
 export const getAllAnimals = async (request, response) => {   // request: petición del cliente, response: respuesta del servidor 
 
