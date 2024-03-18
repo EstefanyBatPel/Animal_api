@@ -66,7 +66,7 @@ export const validateUpdateAnimal = [
         .exists()
         .notEmpty().withMessage('Description is required')
         .isLength({ min: 5 }).withMessage('The description must be at least 5 characters')
-        .isLength({ max: 200 }).withMessage('The name must have a maximum of 200 characters'),
+        .isLength({ max: 500 }).withMessage('The name must have a maximum of 200 characters'),
 
 
     (request, response, next) => {
