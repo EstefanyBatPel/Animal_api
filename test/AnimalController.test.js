@@ -37,12 +37,12 @@ describe('testing CRUD animals', () => {
 
     test('should create a animal with all fields from the model', async () => {
         const response = await api.post('/api').send({
-            "name":"Cat",
-            "image":"catImg",
-            "scientificName":"Cats",
-            "photographer":"fanytest",
-            "sound":"meow",
-            "description":"brown"
+            "name":"test",
+            "image":"http://testing.com",
+            "scientificName":"test",
+            "photographer":"test",
+            "sound":"http://testing.com",
+            "description":"test description"
         });
         expect(typeof response.body).toBe('object');
         expect(response.status).toBe(201);
