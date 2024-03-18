@@ -12,12 +12,13 @@
 //export app.js
 
 //importamos app y request para crear la constante
-import { app } from '../app';
+import { app } from '../app.js';
 import request from 'supertest'
+import connection_db from '../database/connection_db.js'; //para borrar los datos de la base de datos _test  cuando terminan los testeos
 
 const api = request(app); //simulará los test sobre nuestra aplicación
 
-describe('testing CRUD scuptures', () => {
+describe('testing CRUD animals', () => {
     test('Response body must an array and then show 200 status', async() => { //como las request tienen un await la funcion debe ser asincrona
         const response = await api.get('/api');
         expect(Array.isArray(response.body)).toBe(true);
@@ -26,9 +27,34 @@ describe('testing CRUD scuptures', () => {
 
     //test ejemplo de si la url es erronea que de un status 500
 
-    // test('Response body must an array and then show 200 status', async() => { //como las request tienen un await la funcion debe ser asincrona
-    //     const response = await api.get('/hola');
-    //     expect(Array.isArray(response.body)).toBe(true); //tal vez esto se deba cambiar a false para que funcione
-    //     expect(response.status).toBe(500);
+    //  test('Response body must an array and then show 200 status', async() => { //como las request tienen un await la funcion debe ser asincrona
+    //      const response = await api.get('/api');
+    //      expect(Array.isArray(response.body)).toBe(true); //tal vez esto se deba cambiar a false para que funcione
+    //      expect(response.status).toBe(200);
     // });
-})
+
+    test('should create a animal with all fields from the model', async () => {
+        const response = await api.post('/api').send({
+            "name":"Cat",
+            "image":"catImg",
+            "scientificName":"Cats",
+            "photographer":"fanytest",
+            "sound":"meow",
+            "description":"brown"
+        });
+        expect(typeof response.body).toBe('object');
+        expect(response.status).toBe(201);
+    });
+
+    //para este test creamos una base de datos para test para que la informacion que introduzcamos por aquí no vaya a la api original
+    //reactmuseum_test
+    //la conectamos en connection.db y .env
+
+     //para borrar los datos de la base de datos _test  cuando terminan los testeos:
+     afterEach(async () => {
+        await connection_db.query('DELETE FROM animals');
+        //await connection_db.end(); // Cerrar la conexión a la base de datos
+    });
+    
+
+});
