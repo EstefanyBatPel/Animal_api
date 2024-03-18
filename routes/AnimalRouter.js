@@ -1,5 +1,6 @@
 import express from "express";
-import {getAllAnimals, updatedAnimal, deleteAnimal, getAnimalById, createAnimal} from "../controllers/AnimalController.js"
+import { getAllAnimals, updateAnimal, deleteAnimal, getAnimalById, createAnimal } from "../controllers/AnimalController.js"
+import { validateCreateAnimal, validateDeleteAnimal, validateUpdateAnimal } from "../validators/AnimalValidators.js";
 
 const router = express.Router();
 
@@ -7,10 +8,10 @@ router.get("/", getAllAnimals);
 
 router.get('/:id', getAnimalById);
 
-router.delete("/:id", deleteAnimal);
+router.delete("/:id", validateDeleteAnimal, deleteAnimal);
 
-router.post("/", createAnimal);
+router.post("/", validateCreateAnimal, createAnimal);
 
-router.put("/:id", updatedAnimal)
+router.put("/:id", validateUpdateAnimal, updateAnimal)
 
 export default router;
