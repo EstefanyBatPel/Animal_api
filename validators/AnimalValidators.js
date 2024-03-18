@@ -26,7 +26,7 @@ export const validateCreateAnimal = [
   check('description')
       .exists()
       .notEmpty()
-      .isLength({ min: 5 }).withMessage('La descripcion debe tener al menos 5 caracteres'),
+      .isLength({ min: 5 }).withMessage('The description must be at least 5 characters'),
 
   (req, res, next) => {
       validateResult(req, res, next)
@@ -35,23 +35,23 @@ export const validateCreateAnimal = [
 
 export const validateUpdateAnimal = [
     check('name')
-      .notEmpty().withMessage('El nombre del animal es obligatorio')
-      .isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
+      .notEmpty().withMessage('The name of the animal is required')
+      .isLength({ min: 5 }).withMessage('The name must be at least 5 characters'),
   
-    check('scientificName').isAlpha().withMessage('Deben ser caracteres alfabéticos'),
+    check('scientificName').isAlpha().withMessage('They must be alphabetical characters'),
   
     check('image')
-      .notEmpty().withMessage('La imagen es obligatoria')
-      .isURL().withMessage('La imagen debe ser una URL válida'),
+      .notEmpty().withMessage('The image is required')
+      .isURL().withMessage('Image must be a valid URL'),
   
-    check('photographer').notEmpty().withMessage('El nombre del fotógrafo es obligatorio'),
+    check('photographer').notEmpty().withMessage('The photographer is required'),
   
-    check('sound').isURL().withMessage('El sonido debe ser una URL válida'),
+    check('sound').isURL().withMessage('Sound must be a valid URL'),
   
     check('description')
-      .notEmpty().withMessage('La descripción es obligatoria')
-      .isLength({ min: 20 }).withMessage('La descripción debe tener al menos 20 caracteres')
-      .isLength({ max: 200 }).withMessage('El nombre debe tener como máximo 200 caracteres'),
+      .notEmpty().withMessage('Description is required')
+      .isLength({ min: 20 }).withMessage('Description must be at least 20 characters')
+      .isLength({ max: 200 }).withMessage('The name must have a maximum of 200 characters'),
   
     (request, response, next) => {
       validateResult(request, response, next);
