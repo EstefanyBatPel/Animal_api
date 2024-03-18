@@ -45,8 +45,10 @@ const AnimalModel = connection_db.define('Animal', {
     //await animal.sync({force: true}); // Elimina el modelo anterior y crea uno nuevo
     console.log(chalk.green('Model and database synchronized correctly\n'));
   } catch (error) {
+
     console.error('Synchronization error:', error);
   }
-})();
+  
+});
 
 export default AnimalModel;
