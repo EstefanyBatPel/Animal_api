@@ -19,6 +19,8 @@ import connection_db from '../database/connection_db.js'; //para borrar los dato
 const api = request(app); //simulará los test sobre nuestra aplicación
 
 describe('testing CRUD animals', () => {
+
+    
     test('Response body must an array and then show 200 status', async() => { //como las request tienen un await la funcion debe ser asincrona
         const response = await api.get('/api');
         expect(Array.isArray(response.body)).toBe(true);
