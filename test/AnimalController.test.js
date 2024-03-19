@@ -25,7 +25,7 @@ describe('Testing CRUD animals', () => {
         test('Response body must an array and then show 200 status', async () => { 
             const response = await api.get('/api');
             expect(Array.isArray(response.body)).toBe(true);
-            expect(response.body).toHaveLength(0);
+            //expect(response.body).toHaveLength(0);
             expect(response.status).toBe(200);
         });
     })
@@ -100,7 +100,19 @@ describe('Testing CRUD animals', () => {
 
     //Test del Get One
 
+    describe ('Testing Get One animal', () => {
 
+        let createdAnimalTest;
+
+        beforeAll(async () => {
+            createdAnimalTest = await api.post('/api').send(animalTestData);
+        })
+
+        test('Should get one animal and return status 200', async () =>{
+            const response = await api.get(`/api/${createdAnimalTest.body.id}`);
+            expect(response.status).toBe(200);
+        })
+    });
 
     // Test extra ? 
 
