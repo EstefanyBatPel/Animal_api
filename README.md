@@ -23,17 +23,19 @@ Aquí encontrarás toda la lógica y funcionalidad del lado del servidor.
 
 1. Navega hasta el directorio del proyecto:
 
-´´´´
+```sh
 
 cd tu_proyecto
 
-´´´´´
+```
+
 2. Clona este repositorio en tu máquina local usando Git:
 
-´´´´
+```sh
+
 git clone https://github.com/EstefanyBatPel/Animal_api.git
 
-´´´´
+```
 
 ## Instalación
 
@@ -41,27 +43,30 @@ git clone https://github.com/EstefanyBatPel/Animal_api.git
 2. Navega hasta el directorio del proyecto.
 3. Ejecuta el siguiente comando para instalar las dependencias:
 
-´´´
+```sh
 
 npm i
 
-´´´
+```
+
 ## Configuración
+
 
 1. Crea un archivo `.env` en la raíz del proyecto.
 2. Agrega las siguientes variables de entorno en el archivo `.env`:
 
-´´´´
 
-DB_DEV_NAME=
-DB_TEST_NAME=
+```sh
 
-DB_USERNAME=
-DB_PASSWORD=
+DB_DEV_NAME
+DB_TEST_NAME
 
-PORT=
+DB_USERNAME
+DB_PASSWORD
 
-´´´´
+PORT
+
+```
 
 3. Crear una Base Datos en MySQL Workbench
 
@@ -70,10 +75,11 @@ PORT=
 
 1. Ejecuta el siguiente comando para iniciar el servidor:
 
-´´´´
+```sh
+
   node app.js
 
-´´´´´
+```
 
 2. El servidor estará disponible en el puerto que has elegido en archivo .env
 
