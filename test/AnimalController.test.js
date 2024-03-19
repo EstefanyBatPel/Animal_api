@@ -1,62 +1,82 @@
-//instalar jest y supertest npm i jest supertest
-
-//npm install --save-dev jest
-//npm install supertest --save-dev
-
-
-//pegar este codigo en scripts de package.json:
-//"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll --no-cache --detectOpenHandles",
-
-//npm i cross-env (variables de entorno)
-
-//export app.js
-
-//importamos app y request para crear la constante
 import { app } from '../app.js';
 import request from 'supertest'
-import connection_db from '../database/connection_db.js'; //para borrar los datos de la base de datos _test  cuando terminan los testeos
+import connection_db from '../database/connection_db.js';
 import AnimalModel from '../models/AnimalModel.js';
 
-const api = request(app); //simulará los test sobre nuestra aplicación
+const api = request(app);
+let animalTestData = {
+    "name": "test",
+    "image": "http://testing.com",
+    "scientificName": "test",
+    "photographer": "test",
+    "sound": "http://testing.com",
+    "description": "testing"
+}
 
-describe('testing CRUD animals', () => {
+describe('Testing CRUD animals', () => {
 
-    
-    test('Response body must an array and then show 200 status', async() => { //como las request tienen un await la funcion debe ser asincrona
-        const response = await api.get('/api');
-        expect(Array.isArray(response.body)).toBe(true);
-        expect(response.status).toBe(200);
+    afterAll(async () => {
+        await AnimalModel.destroy({ where: { "name": "test" } });
+        //await AnimalModel.truncate(); // Elimina todas las instancias de animales de la base de datos
+        await connection_db.close();
     });
 
-    //test ejemplo de si la url es erronea que de un status 500
-
-    //  test('Response body must an array and then show 200 status', async() => { //como las request tienen un await la funcion debe ser asincrona
-    //      const response = await api.get('/api');
-    //      expect(Array.isArray(response.body)).toBe(true); //tal vez esto se deba cambiar a false para que funcione
-    //      expect(response.status).toBe(200);
-    // });
-
-    test('should create a animal with all fields from the model', async () => {
-        const response = await api.post('/api').send({
-            "name":"test",
-            "image":"http://testing.com",
-            "scientificName":"test",
-            "photographer":"test",
-            "sound":"http://testing.com",
-            "description":"test description"
+    describe('Testing Get Animals', () => {
+        test('Response body must an array and then show 200 status', async () => { 
+            const response = await api.get('/api');
+            expect(Array.isArray(response.body)).toBe(true);
+            expect(response.body).toHaveLength(0);
+            expect(response.status).toBe(200);
         });
-        expect(typeof response.body).toBe('object');
-        expect(response.status).toBe(201);
-    });
+    })
 
-    //para este test creamos una base de datos para test para que la informacion que introduzcamos por aquí no vaya a la api original
-    //reactmuseum_test
-    //la conectamos en connection.db y .env
-
-     //para borrar los datos de la base de datos _test  cuando terminan los testeos:
-     afterAll(async () => {
-        await AnimalModel.destroy({ where:{"name": "test"}});
-        //await connection_db.end(); // Cerrar la conexión a la base de datos
-    });
+    describe('Testing Post - Create Animal', () => {
+        test('Should create a animal and return status 201', async () => {
+            const response = await api.post('/api').send(animalTestData);
+            expect(response.status).toBe(201);
+        });
+        test('Should create a animal and return an object in response body', async () => {
+            const response = await api.post('/api').send(animalTestData);
+            expect(typeof response.body).toBe('object');
+        });
+    })
     
+    //Test del Update
+    describe('Testing Put - Update Animal', () => {
+
+        let createdAnimalTest;
+
+        beforeAll(async () => {
+            createdAnimalTest = await api.post('/api').send(animalTestData);
+        })
+
+        afterAll(async () => {
+            await AnimalModel.destroy({ where: { "name": "test updated" } });
+        })
+
+        test('Should update name in an animal and return status 200', async () => {
+            animalTestData.name = "test updated"
+            const response = await api.put(`/api/${createdAnimalTest.body.id}`).send(animalTestData);
+            expect(response.body.name).toBe("test updated")
+            expect(response.status).toBe(200);
+        })
+
+        test('Should not update an animal and return status 403', async () => {
+            const response = await api.put(`/api/${createdAnimalTest.body.id}`).send({
+                "name": "test not updated",
+            });
+            expect(response.status).toBe(403);
+        })
+    })
+
+    //Test del Delete
+
+
+
+    //Test del Get One
+
+
+
+    // Test extra ? 
+
 });

@@ -1,4 +1,4 @@
-import { PORT } from "./config.js";
+import { NODE_ENV, PORT } from "./config.js";
 import connection_db from "./database/connection_db.js";
 import express from "express";
 import AnimalRouter from "./routes/AnimalRouter.js"
@@ -17,12 +17,13 @@ try {
 } catch (error) {
   console.error('Oh oh...We have a problem ( ono) error:', error);
 }
-
-app.listen(PORT, () => {
-  console.log([
-    chalk.bold(`Server started on PORT: ${PORT}`),
-    chalk.gray(`➜  http://localhost:${PORT}/api`),
-    chalk.gray('Press CTRL-C to stop'),
-    ''
-  ].join('\n'));
-});
+if (NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log([
+      chalk.bold(`Server started on PORT: ${PORT}`),
+      chalk.gray(`➜  http://localhost:${PORT}/api`),
+      chalk.gray('Press CTRL-C to stop'),
+      ''
+    ].join('\n'));
+  });
+}
