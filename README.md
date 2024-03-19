@@ -18,18 +18,9 @@ Aquí encontrarás toda la lógica y funcionalidad del lado del servidor.
 - Postman como extensión en VSC, instalado en tu ordenador o desde su web. https://postman.com
 - Git instalado en tu sistema. Puedes descargarlo desde https://git-scm.com/.
 
-## Configuración del Backend
+## Instalación
 
-
-1. Navega hasta el directorio del proyecto:
-
-```sh
-
-cd tu_proyecto
-
-```
-
-2. Clona este repositorio en tu máquina local usando Git:
+1. Clona este repositorio en tu ordenador:
 
 ```sh
 
@@ -37,11 +28,9 @@ git clone https://github.com/EstefanyBatPel/Animal_api.git
 
 ```
 
-## Instalación
-
-1. Clona este repositorio en tu ordenador en local.
 2. Navega hasta el directorio del proyecto.
-3. Ejecuta el siguiente comando para instalar las dependencias:
+   
+4. Ejecuta el siguiente comando para instalar las dependencias:
 
 ```sh
 
@@ -51,29 +40,13 @@ npm i
 
 ## Configuración
 
+1. Haz una copia del archivo `.env_example` y renombrarlo a `.env` en la raíz del proyecto.
+2. Agrega los valores de las variables de entorno en el archivo `.env` según tu configuración.
+3. Crea una base de datos en MySQL Workbench con el nombre que le asignaste a la variable DB_DEV_NAME.
 
-1. Crea un archivo `.env` en la raíz del proyecto.
-2. Agrega las siguientes variables de entorno en el archivo `.env`:
+## Levantar el servidor de la API
 
-
-```sh
-
-DB_DEV_NAME
-DB_TEST_NAME
-
-DB_USERNAME
-DB_PASSWORD
-
-PORT
-
-```
-
-3. Crear una Base Datos en MySQL Workbench
-
-
-## Levantar el backend.
-
-1. Ejecuta el siguiente comando para iniciar el servidor:
+1. Ejecuta el siguiente comando en la terminal para iniciar el servidor:
 
 ```sh
 
@@ -81,25 +54,16 @@ node app.js
 
 ```
 
-2. El servidor estará disponible en el puerto que has elegido en archivo .env
+El servidor estará disponible en el puerto que has elegido en archivo `.env` o en el puerto 5000 si no le haz asignado ningún valor a PORT.
 
-
-## Herramientas Utilizadas:
-
-
-| Plugin | README |
-| ------ | ------ |
-| Express Validator | [https://express-validator.github.io/docs/] |
-| GitHub | [https://www.github.com] |
-| Postman | [https://wwww.postman.com] |
-| Jest | [https://jestjs.io/docs/getting-started]|
-| Supertest | [https://www.npmjs.com/package/supertest]|
-| My SQL Workbench | [https://www.mysql.com/]|
-| Git | [https://git-scm.com/] |
-
-## Enlace de Postman:
+## Documentación de rutas en Postman:
 
 https://documenter.getpostman.com/view/32563788/2sA2xpRUMM
+
+## Tecnologías:
+
+![My Skills](https://skillicons.dev/icons?i=js,express,sequelize,nodejs,npm,git,github,mysql,jest,vscode,postman)
+
 
 ## Contribución
 
@@ -113,6 +77,6 @@ Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
 
 ## DESARROLLADORAS DEL PROYECTO
 - Scrum Master: [Estefania](https://github.com/EstefanyBatPel)
-- Product Owner: [Maria_Andrea_An] (https://github.com/mariandrean)
+- Product Owner: [Maria](https://github.com/mariandrean)
 - Web developer: [Andrea](https://github.com/Andreamartinn17)
 - Web developer: [Fátima](https://github.com/pointfs)
