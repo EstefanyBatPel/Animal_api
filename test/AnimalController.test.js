@@ -60,4 +60,18 @@ describe('testing CRUD animals', () => {
     });
     
 
+    //Test del Update
+
+
+
+    //Test del Delete
+
+
+
+    //Test del Get One
+
+
+
+    // Test extra ? 
+
 });
