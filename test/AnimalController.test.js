@@ -88,9 +88,14 @@ describe('Testing CRUD animals', () => {
             "name": "delete animal",
             });
             expect(response.status).toBe(200);
-    })
+        })
 
-});
+        test('Should return 500 if attempting to delete a non-existing animal', async () =>{
+            const response = await api.delete(`/api/${createdAnimalTest.body.id}`);
+            expect(response.status).toBe(403);
+        })
+
+    });
 
 
     //Test del Get One
