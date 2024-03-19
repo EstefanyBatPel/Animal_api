@@ -18,18 +18,19 @@ const AnimalModel = connection_db.define('Animal', {
     allowNull: false
   },
   image: {
-    type: DataTypes.STRING(100),
-    allowNull: false
+    type: DataTypes.STRING(200),
+    allowNull: true
   },
   photographer: {
     type: DataTypes.STRING(50),
     allowNull: false
   },
   sound: {
-    type: DataTypes.STRING(100)
+    type: DataTypes.STRING(200),
+    allowNull: false
   },
   description: {
-    type: DataTypes.STRING(200),
+    type: DataTypes.STRING(500),
     allowNull: false
   }
 }, {

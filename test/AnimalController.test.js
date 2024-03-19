@@ -20,6 +20,8 @@ import AnimalModel from '../models/AnimalModel.js';
 const api = request(app); //simulará los test sobre nuestra aplicación
 
 describe('testing CRUD animals', () => {
+
+    
     test('Response body must an array and then show 200 status', async() => { //como las request tienen un await la funcion debe ser asincrona
         const response = await api.get('/api');
         expect(Array.isArray(response.body)).toBe(true);
@@ -37,11 +39,11 @@ describe('testing CRUD animals', () => {
     test('should create a animal with all fields from the model', async () => {
         const response = await api.post('/api').send({
             "name":"test",
-            "image":"catImg",
-            "scientificName":"Cats",
-            "photographer":"fanytest",
-            "sound":"meow",
-            "description":"brown"
+            "image":"http://testing.com",
+            "scientificName":"test",
+            "photographer":"test",
+            "sound":"http://testing.com",
+            "description":"test description"
         });
         expect(typeof response.body).toBe('object');
         expect(response.status).toBe(201);
