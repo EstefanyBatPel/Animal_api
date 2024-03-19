@@ -4,7 +4,7 @@ Este proyecto consiste en un backend de una API desarrollada en Node.js utilizan
 
 Este archivo README proporciona los pasos necesarios para configurar y ejecutar tanto el backend como el frontend con React.
 
-Este es el repositorio del proyecto backend de la aplicación MUSEUM API. 
+Este es el repositorio del proyecto backend de la aplicación REACT MUSEUM API. 
 
 Una api en la que podrás hacer CRUD y tener tu propia colección de animales, añadiendo nombre, foto, sonido, descripción de cada animal.
 
@@ -23,14 +23,17 @@ Aquí encontrarás toda la lógica y funcionalidad del lado del servidor.
 
 1. Navega hasta el directorio del proyecto:
 
+´´´´
+
 cd tu_proyecto
 
+´´´´´
 2. Clona este repositorio en tu máquina local usando Git:
 
+´´´´
+git clone https://github.com/EstefanyBatPel/Animal_api.git
 
-git clone https://github.com/tu_usuario/tu_proyecto.git
-
-
+´´´´
 
 ## Instalación
 
@@ -38,12 +41,17 @@ git clone https://github.com/tu_usuario/tu_proyecto.git
 2. Navega hasta el directorio del proyecto.
 3. Ejecuta el siguiente comando para instalar las dependencias:
 
+´´´
+
 npm i
 
+´´´
 ## Configuración
 
 1. Crea un archivo `.env` en la raíz del proyecto.
 2. Agrega las siguientes variables de entorno en el archivo `.env`:
+
+´´´´
 
 DB_DEV_NAME=
 DB_TEST_NAME=
@@ -53,14 +61,19 @@ DB_PASSWORD=
 
 PORT=
 
-Crear una Base Datos en MySQL Workbench
+´´´´
+
+3. Crear una Base Datos en MySQL Workbench
 
 
 ## Levantar el backend.
 
 1. Ejecuta el siguiente comando para iniciar el servidor:
 
-   node app.js
+´´´´
+  node app.js
+
+´´´´´
 
 2. El servidor estará disponible en el puerto que has elegido en archivo .env
 
@@ -88,6 +101,6 @@ Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
 
 ## DESARROLLADORAS DEL PROYECTO
 - Scrum Master: [Estefania](https://github.com/EstefanyBatPel)
-- Product Owner: [Maria Andrea An] (https://github.com/mariandrean)
+- Product Owner: [Maria_Andrea_An] (https://github.com/mariandrean)
 - Web developer: [Andrea](https://github.com/Andreamartinn17)
 - Web developer: [Fátima](https://github.com/pointfs)
