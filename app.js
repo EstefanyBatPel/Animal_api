@@ -4,6 +4,9 @@ import express from "express";
 import AnimalRouter from "./routes/AnimalRouter.js"
 import chalk from "chalk";
 import cors from "cors";
+//importamos el archivo db.js para usar mongo y lo declaramos abajo
+import initDB from "./config/db.js";
+
 
 export const app = express();
 app.use(cors());
@@ -26,3 +29,5 @@ app.listen(PORT, () => {
     ''
   ].join('\n'));
 });
+
+initDB()
