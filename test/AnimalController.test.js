@@ -15,6 +15,7 @@
 import { app } from '../app.js';
 import request from 'supertest'
 import connection_db from '../database/connection_db.js'; //para borrar los datos de la base de datos _test  cuando terminan los testeos
+import AnimalModel from '../models/AnimalModel.js';
 
 const api = request(app); //simulará los test sobre nuestra aplicación
 
@@ -35,7 +36,7 @@ describe('testing CRUD animals', () => {
 
     test('should create a animal with all fields from the model', async () => {
         const response = await api.post('/api').send({
-            "name":"Cat",
+            "name":"test",
             "image":"catImg",
             "scientificName":"Cats",
             "photographer":"fanytest",
@@ -51,8 +52,8 @@ describe('testing CRUD animals', () => {
     //la conectamos en connection.db y .env
 
      //para borrar los datos de la base de datos _test  cuando terminan los testeos:
-     afterEach(async () => {
-        await connection_db.query('DELETE FROM animals');
+     afterAll(async () => {
+        await AnimalModel.destroy({ where:{"name": "test"}});
         //await connection_db.end(); // Cerrar la conexión a la base de datos
     });
     
