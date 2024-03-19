@@ -86,10 +86,16 @@ node app.js
 
 ## Herramientas Utilizadas:
 
-[Expressvalidator] 
-[MySQLWorkbench]
-[Postman]
-Test: con [Jest] y [Supertest] 
+
+| Plugin | README |
+| ------ | ------ |
+| Express Validator | [https://express-validator.github.io/docs/][PlDb] |
+| GitHub | [https://github/README.md][PlGh] |
+| Postman | [https://wwww.postman.com][PlGd] |
+| Jest | [https://jestjs.io/docs/getting-started][PlOd] |
+| Supertest | [https://www.npmjs.com/package/supertest][PlMe] |
+| My SQL Workbench | [https://www.mysql.com/][PlGa] |
+| Git | [https://git-scm.com/][PlGa] |
 
 ## Enlace de Postman:
 
