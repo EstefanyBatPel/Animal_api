@@ -76,35 +76,6 @@ Test: con Jest y Supertest
 
 https://documenter.getpostman.com/view/32563788/2sA2xpRUMM
 
-
-
-## Bonus: PRIMEROS PASOS PARA UNIR FRONT Y BACK
-
-
-    1. Clonar repo sin que se cree una CARPETA
-
-    Esto es útil para añadir el frontend dentro del proyecto de back
-
-    git clone url respositorio .
-
-
-    2. BACKEND
-
-    cambiar url  app.js
-    
-    npm i    
-
-    node app.js
-
-
-    3. FRONTEND
-
-    cambiar url animalservices.js
-
-    npm i
-
-    npm run dev
-
 ## Contribución
 
 Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
