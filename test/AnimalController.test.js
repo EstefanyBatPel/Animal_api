@@ -71,10 +71,26 @@ describe('Testing CRUD animals', () => {
 
     //Test del Delete
 
-    test('should deleted Animal', async() =>{
-        const response = await  api.delete("/api/:id");
-          expect(response.status).toBe(200);
-      });
+    describe ('Testing delete animal', () => {
+
+        let createdAnimalTest;
+
+        beforeAll(async () => {
+            createdAnimalTest = await api.post('/api').send(animalTestData);
+        })
+
+        afterAll(async () => {
+            await AnimalModel.destroy({ where: { "name": "delete animal" } });
+        })
+        
+        test('Should deleted Animal', async() =>{
+        const response = await  api.delete(`/api/${createdAnimalTest.body.id}`).send({
+            "name": "delete animal",
+            });
+            expect(response.status).toBe(200);
+    })
+
+});
 
 
     //Test del Get One
