@@ -89,13 +89,13 @@ node app.js
 
 | Plugin | README |
 | ------ | ------ |
-| Express Validator | [https://express-validator.github.io/docs/][PlDb] |
-| GitHub | [https://github/README.md][PlGh] |
-| Postman | [https://wwww.postman.com][PlGd] |
-| Jest | [https://jestjs.io/docs/getting-started][PlOd] |
-| Supertest | [https://www.npmjs.com/package/supertest][PlMe] |
-| My SQL Workbench | [https://www.mysql.com/][PlGa] |
-| Git | [https://git-scm.com/][PlGa] |
+| Express Validator | [https://express-validator.github.io/docs/] |
+| GitHub | [https://www.github.com] |
+| Postman | [https://wwww.postman.com] |
+| Jest | [https://jestjs.io/docs/getting-started]|
+| Supertest | [https://www.npmjs.com/package/supertest]|
+| My SQL Workbench | [https://www.mysql.com/]|
+| Git | [https://git-scm.com/] |
 
 ## Enlace de Postman:
 
