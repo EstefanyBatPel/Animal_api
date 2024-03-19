@@ -6,7 +6,6 @@ import { Op } from 'sequelize';
 
 const api = request(app);
 
-
 describe('Testing CRUD animals', () => {
 
     let createdAnimalTest;
@@ -33,7 +32,7 @@ describe('Testing CRUD animals', () => {
         test('Response body must an array and then show 200 status', async () => {
             const response = await api.get('/api');
             expect(Array.isArray(response.body)).toBe(true);
-            //expect(response.body).toHaveLength(0);
+            expect(response.body).toHaveLength(1);
             expect(response.status).toBe(200);
         });
     })
@@ -53,10 +52,6 @@ describe('Testing CRUD animals', () => {
         })
     })
     
-    
-    //Test del Update
-
-    //Test del Update
     describe('Testing Put - Update Animal', () => {
 
         test('Should update name in an animal and return status 200', async () => {
