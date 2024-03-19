@@ -66,6 +66,10 @@ describe('testing CRUD animals', () => {
 
     //Test del Delete
 
+    test('should deleted Animal', async() =>{
+        const response = await  api.delete("/api/:id");
+          expect(response.status).toBe(200);
+      });
 
 
     //Test del Get One
