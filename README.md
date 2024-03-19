@@ -77,7 +77,7 @@ PORT
 
 ```sh
 
-  node app.js
+node app.js
 
 ```
 
@@ -86,10 +86,10 @@ PORT
 
 ## Herramientas Utilizadas:
 
-Express validator
-My SQL Workbench
-Postman
-Test: con Jest y Supertest 
+[Expressvalidator] 
+[MySQLWorkbench]
+[Postman]
+Test: con [Jest] y [Supertest] 
 
 ## Enlace de Postman:
 
