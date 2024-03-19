@@ -59,4 +59,19 @@ describe('testing CRUD animals', () => {
         //await connection_db.end(); // Cerrar la conexión a la base de datos
     });
     
+
+    //Test del Update
+
+
+
+    //Test del Delete
+
+
+
+    //Test del Get One
+
+
+
+    // Test extra ? 
+
 });
