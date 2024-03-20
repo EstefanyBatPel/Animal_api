@@ -39,7 +39,7 @@ npm i
 
 ## Configuración
 
-1. Haz una copia del archivo `.env_example` y renombrarlo a `.env` en la raíz del proyecto.
+1. Haz una copia del archivo `.env.example` y renombrarlo a `.env` en la raíz del proyecto.
 2. Agrega los valores de las variables de entorno en el archivo `.env` según tu configuración.
 3. Crea una base de datos en MySQL Workbench con el nombre que le asignaste a la variable DB_DEV_NAME.
 
