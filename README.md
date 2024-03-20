@@ -29,7 +29,7 @@ git clone https://github.com/EstefanyBatPel/Animal_api.git
 
 2. Navega hasta el directorio del proyecto.
    
-4. Ejecuta el siguiente comando para instalar las dependencias:
+3. Ejecuta el siguiente comando para instalar las dependencias:
 
 ```sh
 
