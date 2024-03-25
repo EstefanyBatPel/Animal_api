@@ -6,6 +6,8 @@ Este proyecto consiste en una API desarrollada en Node.js utilizando Express, ju
 
 Con esta API podrás hacer operaciones CRUD y tener tu propia colección de animales, añadiendo nombre común, nombre científico, imagen, fotógrafo, sonido y descripción de cada animal.
 
+Enlace al repositorio full stack: https://github.com/pointfs/Fullstack_Museum 
+
 ## Lenguajes y herramientas utilizadas
 
 ![My Skills](https://skillicons.dev/icons?i=js,nodejs,express,sequelize,mysql,jest,npm,git,github,vscode,postman)
